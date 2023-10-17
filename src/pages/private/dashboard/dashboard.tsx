@@ -1,9 +1,9 @@
-import { Sidebar } from 'components/organisms'
+import { AppLayout } from 'components/templates'
 
 export default function Dashboard () {
   return (
-    <>
-    <Sidebar />
-    </>
+    <AppLayout title='dashboard'>
+
+    </AppLayout>
   )
 }

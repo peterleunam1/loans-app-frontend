@@ -65,5 +65,6 @@ export const AvatarContainerStyles = (open: boolean) => {
 
 export const AvatarStyles = {
   width: 38,
-  height: 38
+  height: 38,
+  bgcolor: 'secondary.main'
 }

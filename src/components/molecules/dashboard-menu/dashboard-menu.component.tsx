@@ -4,20 +4,21 @@ import debts from '../../../assets/images/borrow.svg'
 import pendings from '../../../assets/images/pending.svg'
 import loans from '../../../assets/images/personal.svg'
 import { boxStyles } from './dashboard-menu.styled'
+import { privateRoutes } from 'constant'
 
 const data = [
   {
-    title: 'Mis Prestamos',
+    title: privateRoutes.LOANS,
     img: loans,
     count: 8
   },
   {
-    title: 'Deudores',
+    title: privateRoutes.DEBTS,
     img: debts,
     count: 5
   },
   {
-    title: 'Pendientes',
+    title: 'pendientes',
     img: pendings,
     count: 2
   }

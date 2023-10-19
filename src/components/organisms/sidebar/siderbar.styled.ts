@@ -1,8 +1,9 @@
 import { styled, type Theme, type CSSObject } from '@mui/material/styles'
 import MuiDrawer from '@mui/material/Drawer'
+import { getRandomColor } from 'utils'
 
 const drawerWidth = 240
-
+const avatarColor = getRandomColor()
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
   transition: theme.transitions.create('width', {
@@ -66,5 +67,5 @@ export const AvatarContainerStyles = (open: boolean) => {
 export const AvatarStyles = {
   width: 38,
   height: 38,
-  bgcolor: 'secondary.main'
+  bgcolor: avatarColor
 }

@@ -1,4 +1,6 @@
 export * from './dashboard-menu.constant'
 export * from './local-storage-types.constant'
+export * from './regexs.constant'
 export * from './routes.constant'
+export * from './tables-header.constant'
 export * from './users'

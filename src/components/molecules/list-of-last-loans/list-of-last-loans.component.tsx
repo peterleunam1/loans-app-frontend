@@ -24,7 +24,7 @@ const demos = [
 export default function ListOfLastLoans () {
   return (
     <LastLoansContainer>
-      <Typography variant="h6" component="p" sx={TypographyStyles}>
+      <Typography variant="subtitle1" component="p" sx={TypographyStyles}>
         Ultimos prestamos
       </Typography>
       <List sx={listStyles}>

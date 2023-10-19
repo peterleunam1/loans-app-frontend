@@ -2,6 +2,7 @@ import { Typography, styled } from '@mui/material'
 import { AppLayout } from 'components/templates'
 import MuiBox from '@mui/material/Box'
 import { DashboardMenu, ListOfLastLoans } from 'components/molecules'
+import graphic from '../../../assets/images/graphic.svg'
 
 const MainContainer = styled(MuiBox)(({ theme }) => ({
   width: '100%',
@@ -28,14 +29,12 @@ export default function Dashboard () {
   return (
     <AppLayout title="dashboard">
       <Typography variant="subtitle1" component="p" gutterBottom>
-        Lorem ipsum dolor sit amet consectetur adipisicing.
+      Lleva el control de todo, justo en un solo lugar.
       </Typography>
       <DashboardMenu />
       <MainContainer>
         <GraphicContainer>
-          <Typography variant="body2" component="p" gutterBottom>
-            gráfica
-          </Typography>
+          <img src={graphic} alt="graphics" style={{ width: '70%' }} />
         </GraphicContainer>
         <ListOfLastLoans />
       </MainContainer>

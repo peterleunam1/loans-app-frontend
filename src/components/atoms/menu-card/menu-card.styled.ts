@@ -4,6 +4,7 @@ import MuiCard from '@mui/material/Card'
 export const Card = styled(MuiCard)(({ theme }) => ({
   width: '32%',
   minHeight: 100,
+  backgroundColor: theme.palette.primary.light,
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',

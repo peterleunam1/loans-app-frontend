@@ -20,7 +20,7 @@ export default function LoanCard ({ name, email }: LoanCardProps) {
     <ListItem sx={listItemStyles}>
       <Avatar sx={avatarStyled}>{firstLetter}</Avatar>
       <Box sx={{ textAlign: 'left', width: '82%' }}>
-        <Typography variant="body1" component="p" sx={{ fontWeight: 'bold' }}>
+        <Typography variant="subtitle1" component="p">
           {name}
         </Typography>
         <Typography variant="subtitle2" component="p">

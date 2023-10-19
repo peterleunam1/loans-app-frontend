@@ -4,29 +4,31 @@ import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlin
 import PersonRemoveOutlinedIcon from '@mui/icons-material/PersonRemoveOutlined'
 import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined'
 import VpnKeyOutlinedIcon from '@mui/icons-material/VpnKeyOutlined'
+import { privateRoutes } from './routes.constant'
+
 export const menuData = [
   {
-    text: 'Inicio',
+    text: 'inicio',
     icon: <HomeOutlinedIcon />
   },
   {
-    text: 'Mis prestamos',
+    text: privateRoutes.LOANS,
     icon: <MonetizationOnOutlinedIcon />
   },
   {
-    text: 'De contado',
+    text: 'contado',
     icon: <VpnKeyOutlinedIcon />
   },
   {
-    text: 'Deudores',
+    text: privateRoutes.DEBTS,
     icon: <PersonRemoveOutlinedIcon />
   },
   {
-    text: 'Mis pagos',
+    text: 'pagos',
     icon: <PaymentsOutlinedIcon />
   },
   {
-    text: 'Configuración',
+    text: 'configuración',
     icon: <SettingsOutlinedIcon />
   }
 ]

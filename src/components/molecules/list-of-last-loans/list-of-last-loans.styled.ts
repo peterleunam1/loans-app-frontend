@@ -1,5 +1,5 @@
 import { styled } from '@mui/material'
-import MuiBox from '@mui/material/Box'
+import MuiCard from '@mui/material/Card'
 
 export const listStyles = {
   display: 'flex',
@@ -7,24 +7,24 @@ export const listStyles = {
   alignItems: 'center',
   justifyContent: 'center',
   gap: 1,
-  width: '100%'
+  width: '90%'
 }
-export const LastLoansContainer = styled(MuiBox)(({ theme }) => ({
-  width: '32%',
+export const LastLoansContainer = styled(MuiCard)(({ theme }) => ({
+  width: '30%',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-
+  borderRadius: '8px',
+  padding: '25px 0',
   [theme.breakpoints.down('sm')]: {
     width: '100%',
     marginTop: '50px'
   }
 }))
 export const TypographyStyles = {
-  width: '100%',
+  width: '80%',
   marginBottom: 1,
-  bgcolor: '#D9D9D9',
   textAlign: 'center',
   borderRadius: '8px'
 }

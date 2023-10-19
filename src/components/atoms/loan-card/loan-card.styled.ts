@@ -6,7 +6,11 @@ export const listItemStyles = {
   width: '100%',
   gap: 1.4,
   borderBottom: '1px solid #d9d9d9',
-  pb: 1
+  pb: 1,
+
+  '&:last-child': {
+    borderBottom: 'none'
+  }
 }
 export const avatarStyles = {
   width: 38,

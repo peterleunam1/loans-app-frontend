@@ -6,4 +6,7 @@ export interface LoansModel {
   abonos: number
   date: string
   interest: number
+  reason: string
+  n_fees: number
+  frequence: string
 }

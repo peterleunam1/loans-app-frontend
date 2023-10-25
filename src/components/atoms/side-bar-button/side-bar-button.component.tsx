@@ -24,6 +24,7 @@ export default function SideBarButton ({ text, open, icon }: SideBarButtonProps)
     if (text === 'inicio') goTo('/')
     else goTo(`/${privateRoutes.PRIVATE}/${text}`)
   }
+
   return (
     <Tooltip title={text} placement="right" arrow>
       <ListItemButton

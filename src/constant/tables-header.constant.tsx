@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material'
 import { type GridColDef } from '@mui/x-data-grid'
+
 import { getUnitPrice } from 'utils'
 interface CalculateInterestModel {
   initialAmount: number
@@ -18,14 +19,12 @@ export const loansColumns: GridColDef[] = [
   {
     field: 'fullName',
     headerName: 'Nombre completo',
-    width: 150,
-    editable: true
+    width: 150
   },
   {
     field: 'document',
     headerName: 'Documento',
-    width: 150,
-    editable: true
+    width: 150
   },
   {
     field: 'date',
@@ -80,7 +79,6 @@ export const loansColumns: GridColDef[] = [
           interest: params.row.interest
         }) - params.row.abonos
       )
-
   },
   {
     field: 'status',
@@ -106,32 +104,17 @@ export const loansColumns: GridColDef[] = [
             )}
       </>
     )
+  },
+  {
+    field: 'actions',
+    headerName: 'Acciones',
+    width: 150,
+    renderCell: (params) => (
+      <>
+       <button onClick={() => { console.log(params.row) }}>editar</button>
+      </>
+    )
   }
-  // {
-  //   field: 'delete',
-  //   headerName: 'Eliminar',
-  //   width: 110,
-  //   renderCell: (params) => (
-  //     <>
-  //       {params.row.initialAmount - params.row.abonos <= 0
-  //         ? (
-  //         <Typography
-  //           variant="body2"
-  //           color="text.secondary"
-  //           align="center"
-  //           sx={{ cursor: 'pointer' }}
-  //         >
-  //           Eliminar
-  //         </Typography>
-  //           )
-  //         : (
-  //         <Typography variant="body2" color="blue" align="center">
-  //           En curso
-  //         </Typography>
-  //           )}
-  //     </>
-  //   )
-  // }
 ]
 
 export const debtsColumns: GridColDef[] = [

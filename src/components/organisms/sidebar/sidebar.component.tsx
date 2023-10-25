@@ -9,10 +9,16 @@ import {
   BoxContainerStyles,
   Drawer
 } from './siderbar.styled'
+import { useSelector } from 'react-redux'
+import { type AppStore } from 'models'
+import { getFirstChart } from 'utils'
 
 export default function Sidebar () {
   const [open, setOpen] = useState<boolean>(false)
   const avatarContainerStyled = AvatarContainerStyles(open)
+  const { name, lastName } = useSelector((store: AppStore) => store.user_active)
+  const firstLetter = getFirstChart(name)
+  const fullName = `${name} ${lastName}`
   const handleDrawerOpen = () => {
     setOpen(true)
   }
@@ -29,8 +35,8 @@ export default function Sidebar () {
           handleDrawerOpen={handleDrawerOpen}
         />
         <Box sx={avatarContainerStyled}>
-          <Avatar sx={AvatarStyles}>H</Avatar>
-          {open && <Typography sx={{ fontWeight: 'bold' }}>Hans</Typography>}
+          <Avatar sx={AvatarStyles}>{firstLetter}</Avatar>
+          {open && <Typography sx={{ fontWeight: 'bold' }}>{fullName}</Typography>}
         </Box>
       </Box>
     </Drawer>

@@ -1,4 +1,4 @@
-import { Typography, styled } from '@mui/material'
+import { styled } from '@mui/material'
 import { AppLayout } from 'components/templates'
 import MuiBox from '@mui/material/Box'
 import { DashboardMenu, ListOfLastLoans } from 'components/molecules'
@@ -28,9 +28,6 @@ const GraphicContainer = styled(MuiBox)(({ theme }) => ({
 export default function Dashboard () {
   return (
     <AppLayout title="dashboard">
-      <Typography variant="subtitle1" component="p" gutterBottom>
-      Lleva el control de todo, justo en un solo lugar.
-      </Typography>
       <DashboardMenu />
       <MainContainer>
         <GraphicContainer>

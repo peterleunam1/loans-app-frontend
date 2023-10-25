@@ -1,18 +1,32 @@
-import { Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material'
+import {
+  Box,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  type SelectChangeEvent
+} from '@mui/material'
 import { type AddLoanDebts } from 'models'
 import { getCapitalize } from 'utils'
 import { selectStyles } from './select.styled'
 
 interface SelectStyledProps {
   label: string
-  data: AddLoanDebts[]
+  data: AddLoanDebts[] | string[]
   icon: JSX.Element
-  onChange: () => void
+  name: string
+  onChange: (e: SelectChangeEvent<string>) => void
 }
-export default function SelectStyled ({ label, data, onChange, icon }: SelectStyledProps) {
+export default function SelectStyled ({
+  label,
+  data,
+  onChange,
+  icon,
+  name
+}: SelectStyledProps) {
   const labelCapitalized = getCapitalize(label)
-  const handleChange = () => {
-    onChange()
+  const handleChange = (e: SelectChangeEvent<string>) => {
+    onChange(e)
   }
 
   return (
@@ -34,15 +48,25 @@ export default function SelectStyled ({ label, data, onChange, icon }: SelectSty
           labelId="demo-simple-select-filled-label"
           id="demo-simple-select-filled"
           onChange={handleChange}
+          name={name}
           sx={{
             ml: 1
           }}
         >
-          {data.map((item, index) => (
-            <MenuItem key={index} value={item.fullName}>
-              {item.fullName}
-            </MenuItem>
-          ))}
+          {data.map((item, index) => {
+            if (typeof item === 'object') {
+              return (
+                <MenuItem key={index} value={item.document}>
+                  {item.fullName}
+                </MenuItem>
+              )
+            }
+            return (
+              <MenuItem key={index} value={item}>
+                {item}
+              </MenuItem>
+            )
+          })}
         </Select>
       </FormControl>
     </Box>

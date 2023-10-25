@@ -14,7 +14,7 @@ interface TableProps {
 
 export default function TableGrid ({ rows, columns }: TableProps) {
   return (
-    <Box sx={{ height: '75vh', width: '100%' }}>
+    <Box sx={{ height: '75vh', maxWidth: '100&' }}>
       <DataGrid
         rows={rows}
         columns={columns}
@@ -25,8 +25,17 @@ export default function TableGrid ({ rows, columns }: TableProps) {
             }
           }
         }}
+        sx={{
+          '& .MuiDataGrid-columnHeaderTitle': {
+            fontWeight: 'bold'
+          },
+          // hacer que la tabla tenga un scroll horizontal y no cambie el tamaño de las columnas y ventana
+          '& .MuiDataGrid-root': {
+            minWidth: '100%',
+            overflowX: 'scroll'
+          }
+        }}
         pageSizeOptions={[5]}
-        checkboxSelection
         disableRowSelectionOnClick
       />
     </Box>

@@ -7,6 +7,6 @@ const privateValidationFragment = <Outlet />
 const publicValidationFragment = <Navigate replace to={publicRoutes.LOGIN} />
 
 export default function AuthGuard () {
-  const user = useSelector((store: AppStore) => store.user)
+  const user = useSelector((store: AppStore) => store.user_active)
   return user.name ? privateValidationFragment : publicValidationFragment
 }

@@ -6,6 +6,7 @@ import { publicRoutes, privateRoutes } from 'constant'
 import { AuthGuard } from 'guards'
 import { store } from '../redux'
 const Login = lazy(async () => await import('../pages/public/login/login'))
+const PayInit = lazy(async () => await import('../pages/public/pays-init/pays-init'))
 const Private = lazy(async () => await import('../pages/private/private'))
 
 function App () {
@@ -19,6 +20,7 @@ function App () {
           element={<Navigate to={privateRoutes.PRIVATE} />}
         />
         <Route path={publicRoutes.LOGIN} element={<Login />} />
+        <Route path={publicRoutes.PAY_INIT} element={<PayInit />} />
         <Route element={<AuthGuard />}>
           <Route path={`${privateRoutes.PRIVATE}/*`} element={<Private />} />
         </Route>

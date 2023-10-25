@@ -5,18 +5,19 @@ import { getCapitalize } from 'utils'
 
 interface InputProps {
   label: string
-  onChange: (value: string) => void
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   regex: RegExp
   icon: JSX.Element
+  name: string
+  type?: string
 }
 
-export default function Input ({ regex, label, icon, onChange }: InputProps) {
+export default function Input ({ regex, label, icon, type = 'text', name, onChange }: InputProps) {
   const [error, setError] = useState<boolean>(false)
   const labelCapitalized = getCapitalize(label)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
     if (regex.test(e.target.value)) {
-      onChange(value)
+      onChange(e)
       setError(false)
     } else setError(true)
   }
@@ -42,11 +43,14 @@ export default function Input ({ regex, label, icon, onChange }: InputProps) {
           sx={textFieldStyles}
           error={error}
           size="small"
-          name={label}
+          typeof={type}
+          name={name}
           onChange={handleChange}
         />
         {error && (
-          <Typography variant="caption" component="small">
+          <Typography variant="caption" component="small" sx={{
+            color: 'red'
+          }}>
             Ingrese un carácter válido
           </Typography>
         )}

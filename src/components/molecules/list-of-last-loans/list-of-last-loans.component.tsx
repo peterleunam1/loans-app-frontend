@@ -5,32 +5,23 @@ import {
   TypographyStyles,
   listStyles
 } from './list-of-last-loans.styled'
-
-const demos = [
-  {
-    name: 'Pedro Manuel Agames Rocha',
-    email: 'lormdbamsms@gmail.com'
-  },
-  {
-    name: 'Jesus Camilo Toledo Rangel',
-    email: 'lormdbamsms@gmail.com'
-  },
-  {
-    name: 'Jose Luis De Ávila Mercado',
-    email: 'lormdbamsms@gmail.com'
-  }
-]
+import { useSelector } from 'react-redux'
+import { type AppStore } from 'models'
 
 export default function ListOfLastLoans () {
+  const lastLoans = useSelector((store: AppStore) =>
+    store.user_active.loans.slice(-4).reverse()
+  )
   return (
     <LastLoansContainer>
       <Typography variant="subtitle1" component="p" sx={TypographyStyles}>
         Ultimos prestamos
       </Typography>
       <List sx={listStyles}>
-        {demos.map((demo, index) => (
-          <LoanCard key={index} {...demo} />
-        ))}
+        {lastLoans.map(({ fullName, date, document }, index) => {
+          const subtitle = `Doc.: ${document} - Fecha: ${date}`
+          return <LoanCard key={index} name={fullName} email={subtitle} />
+        })}
       </List>
     </LastLoansContainer>
   )

@@ -16,7 +16,7 @@ export const menuData = [
     icon: <MonetizationOnOutlinedIcon />
   },
   {
-    text: 'contado',
+    text: privateRoutes.CASH,
     icon: <VpnKeyOutlinedIcon />
   },
   {
@@ -24,11 +24,11 @@ export const menuData = [
     icon: <PersonRemoveOutlinedIcon />
   },
   {
-    text: 'pagos',
+    text: privateRoutes.PAY,
     icon: <PaymentsOutlinedIcon />
   },
   {
-    text: 'configuración',
+    text: privateRoutes.SETTINGS,
     icon: <SettingsOutlinedIcon />
   }
 ]

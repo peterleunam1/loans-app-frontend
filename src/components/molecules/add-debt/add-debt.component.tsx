@@ -11,6 +11,7 @@ import { type AppStore, type DebtsModel } from 'models'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { addUserDebt } from '../../../redux/states/user'
+import { getSingleId } from 'utils'
 
 const data = [
   {
@@ -69,7 +70,7 @@ export default function AddDebt ({ setOpen, setAlert }: AddDebtProps) {
   })
   const handleClose = () => { setOpen(false) }
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const id = userDebts.length + 1
+    const id = getSingleId()
     setValues({
       ...values,
       id,

@@ -12,6 +12,7 @@ import { type AppStore, type LoansModel } from 'models'
 import { useDispatch, useSelector } from 'react-redux'
 import { addUserLoan } from '../../../redux/states/user'
 import { updateUser } from '../../../redux/states/users'
+import { getSingleId } from 'utils'
 
 const data = [
   {
@@ -91,7 +92,7 @@ export default function AddLoan ({ setOpen, setAlert }: AddLoanProps) {
 
   const handleSubmit = () => {
     const debtor = userLoans.debts.find((item) => item.document === values?.deudor)
-    const id = userLoans.loans.length + 1
+    const id = getSingleId()
     if (debtor && values.initialAmount && values.interest) {
       const newLoan: LoansModel = {
         id,

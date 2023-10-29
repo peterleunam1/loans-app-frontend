@@ -12,7 +12,7 @@ export default function AppLayout ({ children, title }: AppLayoutProps) {
   return (
     <Box sx={{ display: 'flex' }}>
       <Sidebar />
-      <Box component="main" sx={{ flexGrow: 1, px: 3, py: 5, overflow: 'hidden' }}>
+      <Box component="main" sx={{ flexGrow: 1, px: 3.5, py: 5, overflow: 'hidden' }}>
         <Typography variant="h4" component="h1"> {titleCapitalized} </Typography>
         <Typography variant="subtitle1" component="p" gutterBottom>
         Lleva el control de tu negocio, justo en un solo lugar.

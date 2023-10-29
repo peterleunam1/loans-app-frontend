@@ -2,20 +2,26 @@ import { ListItem, Avatar, Box, Typography } from '@mui/material'
 import { getFirstChart, getRandomColor } from 'utils'
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined'
 import { avatarStyles, listItemStyles } from './loan-card.styled'
+import { useNavigation } from 'hooks'
+import { privateRoutes } from 'constant'
 
 interface LoanCardProps {
+  id: number
   name: string
   email: string
 }
 
-export default function LoanCard ({ name, email }: LoanCardProps) {
+export default function LoanCard ({ id, name, email }: LoanCardProps) {
+  const { goTo } = useNavigation()
   const randomColor = getRandomColor()
   const firstLetter = getFirstChart(name)
   const avatarStyled = {
     ...avatarStyles,
     bgcolor: randomColor
   }
-
+  const handleRedirect = () => {
+    goTo(privateRoutes.LOANS_DETAIL.replace(':id', id.toString()))
+  }
   return (
     <ListItem sx={listItemStyles}>
       <Avatar sx={avatarStyled}>{firstLetter}</Avatar>
@@ -27,7 +33,7 @@ export default function LoanCard ({ name, email }: LoanCardProps) {
           {email}
         </Typography>
       </Box>
-      <RemoveRedEyeOutlinedIcon sx={{ cursor: 'pointer' }} />
+      <RemoveRedEyeOutlinedIcon sx={{ cursor: 'pointer' }} onClick={handleRedirect}/>
     </ListItem>
   )
 }

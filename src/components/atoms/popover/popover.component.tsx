@@ -1,4 +1,4 @@
-import { Typography, Popover, Tooltip } from '@mui/material'
+import { Typography, Popover, Tooltip, Box } from '@mui/material'
 import { type ChildrenModel } from 'models'
 import { useState } from 'react'
 import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined'
@@ -18,7 +18,7 @@ export default function CustomPopover ({ children }: ChildrenModel) {
   const id = open ? 'simple-popover' : undefined
 
   return (
-      <div>
+      <Box>
         <span aria-describedby={id} onClick={handleClick}>
         <Tooltip title='Abonar' placement="top" arrow>
            <DriveFileRenameOutlineOutlinedIcon sx={{ cursor: 'pointer', color: 'green', ml: 1 }}/>
@@ -36,6 +36,6 @@ export default function CustomPopover ({ children }: ChildrenModel) {
         >
           <Typography sx={{ p: 2 }}>{children}</Typography>
         </Popover>
-      </div>
+      </Box>
   )
 }

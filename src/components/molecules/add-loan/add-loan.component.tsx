@@ -99,11 +99,12 @@ export default function AddLoan ({ setOpen, setAlert }: AddLoanProps) {
         document: debtor?.document ?? '',
         initialAmount: Number(values?.initialAmount),
         abonos: 0,
-        date: new Date().toLocaleDateString(),
+        date: new Date(),
         interest: Number(values?.interest),
         n_fees: Number(values?.n_fees),
         frequence: values?.frequence,
-        reason: values?.reason
+        reason: values?.reason,
+        paid_fees: 0
       }
       if (newLoan) {
         dispatch(addUserLoan(newLoan))

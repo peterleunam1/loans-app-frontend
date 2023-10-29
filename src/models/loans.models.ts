@@ -4,9 +4,10 @@ export interface LoansModel {
   document: string
   initialAmount: number
   abonos: number
-  date: string
+  date: Date
   interest: number
   reason: string
   n_fees: number
+  paid_fees: number
   frequence: string
 }

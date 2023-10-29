@@ -8,8 +8,9 @@ interface ButtonProps {
   loading: boolean
   withIcon?: boolean
   text: string
+  isDisabled?: boolean
 }
-export default function Button ({ loading, withIcon, text, onClick }: ButtonProps) {
+export default function Button ({ isDisabled, loading, withIcon, text, onClick }: ButtonProps) {
   const textCapitalized = getCapitalize(text)
   const handleClick = () => {
     onClick()
@@ -20,6 +21,7 @@ export default function Button ({ loading, withIcon, text, onClick }: ButtonProp
       variant="contained"
       sx={buttonStyles}
       onClick={handleClick}
+      disabled={isDisabled}
     >
       {textCapitalized}
       {withIcon && <AddIcon />}

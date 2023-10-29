@@ -3,7 +3,7 @@ import { type ChildrenModel } from 'models'
 
 export default function BoxEnd ({ children }: ChildrenModel) {
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
+    <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', mb: 2 }}>
       {children}
     </Box>
   )

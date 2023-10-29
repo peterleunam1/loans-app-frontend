@@ -9,5 +9,6 @@ export const privateRoutes = {
   DEBTS: 'deudores',
   SETTINGS: 'configuracion',
   PAY: 'pagos',
-  CASH: 'movimientos'
+  CASH: 'movimientos',
+  LOANS_DETAIL: 'prestamos/:id'
 }

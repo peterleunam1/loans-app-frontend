@@ -12,9 +12,11 @@ interface ButtonProps {
 }
 export default function Button ({ isDisabled, loading, withIcon, text, onClick }: ButtonProps) {
   const textCapitalized = getCapitalize(text)
+
   const handleClick = () => {
     onClick()
   }
+
   return (
     <LoadingButton
       loading={loading}

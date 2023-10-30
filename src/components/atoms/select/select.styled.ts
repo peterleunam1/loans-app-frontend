@@ -1,9 +1,10 @@
 export const boxStyles = {
-  mb: 2,
+  mb: 1.5,
   display: 'flex',
   width: '100%',
   justifyContent: 'space-between',
-  alignItems: 'center'
+  alignItems: 'center',
+  fontSize: '14px'
 }
 export const selectStyles = {
   width: '100%',

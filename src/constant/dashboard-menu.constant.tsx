@@ -4,6 +4,9 @@ import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlin
 import PersonRemoveOutlinedIcon from '@mui/icons-material/PersonRemoveOutlined'
 import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined'
 import VpnKeyOutlinedIcon from '@mui/icons-material/VpnKeyOutlined'
+import debts from '../assets/images/borrow.svg'
+import pendings from '../assets/images/pending.svg'
+import loans from '../assets/images/personal.svg'
 import { privateRoutes } from './routes.constant'
 
 export const menuData = [
@@ -30,5 +33,20 @@ export const menuData = [
   {
     text: privateRoutes.SETTINGS,
     icon: <SettingsOutlinedIcon />
+  }
+]
+
+export const cardMenuData = [
+  {
+    title: privateRoutes.LOANS,
+    img: loans
+  },
+  {
+    title: privateRoutes.DEBTS,
+    img: debts
+  },
+  {
+    title: 'pendientes',
+    img: pendings
   }
 ]

@@ -1,14 +1,11 @@
+import {
+  DataGrid, type GridColDef
+} from '@mui/x-data-grid'
 import Box from '@mui/material/Box'
-import {
-  DataGrid
-} from '@mui/x-data-grid'
-import { type DebtsModel, type LoansModel } from 'models'
-import {
-  type GridColDef
-} from '@mui/x-data-grid'
+import { type FeesModel, type DebtsModel, type LoansModel } from 'models'
 
 interface TableProps {
-  rows: LoansModel[] | DebtsModel[] | any[]
+  rows: LoansModel[] | DebtsModel[] | FeesModel[]
   columns: GridColDef[]
 }
 

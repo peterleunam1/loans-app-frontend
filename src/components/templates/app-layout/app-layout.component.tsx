@@ -9,6 +9,7 @@ interface AppLayoutProps {
 
 export default function AppLayout ({ children, title }: AppLayoutProps) {
   const titleCapitalized = getCapitalize(title)
+
   return (
     <Box sx={{ display: 'flex' }}>
       <Sidebar />

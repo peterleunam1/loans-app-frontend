@@ -1,6 +1,6 @@
-import { TextField, Typography, Box } from '@mui/material'
 import { useState } from 'react'
-import { textFieldStyles } from './input.syled'
+import { TextField, Typography, Box } from '@mui/material'
+import { boxStyles, textFieldStyles } from './input.syled'
 import { getCapitalize } from 'utils'
 
 interface InputProps {
@@ -14,7 +14,9 @@ interface InputProps {
 
 export default function Input ({ regex, label, icon, type = 'text', name, onChange }: InputProps) {
   const [error, setError] = useState<boolean>(false)
+
   const labelCapitalized = getCapitalize(label)
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (regex.test(e.target.value)) {
       onChange(e)
@@ -24,13 +26,7 @@ export default function Input ({ regex, label, icon, type = 'text', name, onChan
 
   return (
     <Box
-      sx={{
-        mb: 2,
-        display: 'flex',
-        width: '100%',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-      }}
+      sx={boxStyles}
     >
       {icon}
       <Box sx={{ width: '100%' }}>

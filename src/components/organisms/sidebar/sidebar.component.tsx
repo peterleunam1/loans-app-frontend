@@ -15,13 +15,19 @@ import { getFirstChart } from 'utils'
 
 export default function Sidebar () {
   const [open, setOpen] = useState<boolean>(false)
+
   const avatarContainerStyled = AvatarContainerStyles(open)
+
   const { name, lastName } = useSelector((store: AppStore) => store.user_active)
-  const firstLetter = getFirstChart(name)
-  const fullName = `${name} ${lastName}`
+
+  const firstLetter: string = getFirstChart(name)
+
+  const fullName: string = `${name} ${lastName}`
+
   const handleDrawerOpen = () => {
     setOpen(true)
   }
+
   const handleDrawerClose = () => {
     setOpen(false)
   }

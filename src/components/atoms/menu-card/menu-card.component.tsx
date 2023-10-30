@@ -12,10 +12,13 @@ interface MenuCardProps {
 
 export default function MenuCard ({ count, img, title }: MenuCardProps) {
   const { goTo } = useNavigation()
+
   const titleCapitalized = getCapitalize(title)
+
   const navigate = () => {
     goTo(`/${privateRoutes.PRIVATE}/${title}`)
   }
+
   return (
     <Card onClick={navigate}>
       <Box sx={contentStyles}>

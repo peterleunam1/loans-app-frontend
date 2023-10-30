@@ -60,11 +60,11 @@ const userSlice = createSlice({
       persistLocalStorage<UserCompleteModel>(localStorageTypes.USER, result)
       return result
     },
-    resetUser: () => {
+    logOut: () => {
       clearLocalStorage(localStorageTypes.USER)
       return initialState
     }
   }
 })
-export const { setUser, resetUser, addUserLoan, addUserDebt, addAbonoLoan, deleteLoan } = userSlice.actions
+export const { setUser, logOut, addUserLoan, addUserDebt, addAbonoLoan, deleteLoan } = userSlice.actions
 export default userSlice.reducer

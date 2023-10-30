@@ -1,9 +1,9 @@
 import { ListItem, Avatar, Box, Typography } from '@mui/material'
-import { getFirstChart, getRandomColor } from 'utils'
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined'
-import { avatarStyles, listItemStyles } from './loan-card.styled'
+import { getFirstChart, getRandomColor } from 'utils'
 import { useNavigation } from 'hooks'
 import { privateRoutes } from 'constant'
+import { avatarStyles, listItemStyles } from './loan-card.styled'
 
 interface LoanCardProps {
   id: number
@@ -13,8 +13,11 @@ interface LoanCardProps {
 
 export default function LoanCard ({ id, name, email }: LoanCardProps) {
   const { goTo } = useNavigation()
+
   const randomColor = getRandomColor()
+
   const firstLetter = getFirstChart(name)
+
   const avatarStyled = {
     ...avatarStyles,
     bgcolor: randomColor

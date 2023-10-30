@@ -7,3 +7,13 @@ export const boxButtonStyles = {
   alignItems: 'center',
   gap: 2
 }
+
+export const loanBeforeStyles = {
+  color: 'warning.main',
+  mb: 2
+}
+
+export const notDebtorStyles = {
+  color: 'blue',
+  mb: 2
+}

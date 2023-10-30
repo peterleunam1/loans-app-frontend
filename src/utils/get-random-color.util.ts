@@ -1,5 +1,4 @@
 export const getRandomColor = (): string => {
-  // colores para avatar de usuario
   const randomColors = [
     '#e57373',
     '#f06292',

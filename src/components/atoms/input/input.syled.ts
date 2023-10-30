@@ -9,7 +9,7 @@ export const textFieldStyles = {
   '& .MuiInputBase-input': { fontSize: '14px' }
 }
 export const boxStyles = {
-  mb: 2,
+  mb: 1.5,
   display: 'flex',
   width: '100%',
   justifyContent: 'space-between',

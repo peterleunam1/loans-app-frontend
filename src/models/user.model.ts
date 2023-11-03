@@ -4,6 +4,7 @@ import { type LoansModel } from './loans.models'
 export interface AppStore {
   user_active: UserCompleteModel
   users: UserModel[]
+  owner: UserCompleteModel
 }
 export interface ChildrenModel {
   children: React.ReactNode

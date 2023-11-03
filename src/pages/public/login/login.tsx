@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { setUser } from '../../../redux/states/user'
 import { createUser } from '../../../redux/states/users'
-import { privateRoutes, regexs } from 'constant'
+import { privateRoutes, publicRoutes, regexs } from 'constant'
 import { useNavigation } from 'hooks'
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined'
 import { Alert, Box, Typography } from '@mui/material'
@@ -144,7 +144,9 @@ export default function Login () {
       setAlert('Usuario creado con éxito')
     }
   }
-
+  const handleRedirectToPay = () => {
+    goTo(`/${publicRoutes.PAY_INIT}`)
+  }
   return (
     <div>
       <h1>Login</h1>
@@ -156,6 +158,9 @@ export default function Login () {
       <button onClick={handleLoginU}>iniciar sesión</button>
       {alert && <Alert>{alert}</Alert>}
       <hr />
+      <button onClick={handleRedirectToPay}>
+        pagar
+      </button>
       <Typography variant="h3" component="h2">
         Registro
       </Typography>

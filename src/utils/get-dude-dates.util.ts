@@ -6,7 +6,7 @@ interface GetDudeDatesParams {
 export const getDudeDates = ({ date, frequence, nFees }: GetDudeDatesParams): Date[] => {
   const fechasPago: Date[] = []
   const nuevaFecha = new Date(date)
-
+  frequence = frequence.toLowerCase()
   if (frequence === 'mensual') {
     nuevaFecha.setMonth(nuevaFecha.getMonth() + 1)
   } else if (frequence === 'quincenal') {

@@ -69,12 +69,16 @@ function QontoStepIcon (props: StepIconProps) {
   )
 }
 
-const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad']
+const steps = ['Usuario', 'Información de préstamos', 'Métodos de pago']
 
-export default function PayFlow () {
+interface HorizontalStepperProps {
+  activeStep: number
+}
+
+export default function CustomizedSteppers ({ activeStep }: HorizontalStepperProps) {
   return (
-    <Stack sx={{ width: '100%' }} spacing={4}>
-      <Stepper alternativeLabel activeStep={3} connector={<QontoConnector />}>
+    <Stack sx={{ width: '100%', mb: 5 }} spacing={4}>
+      <Stepper alternativeLabel activeStep={activeStep} connector={<QontoConnector />}>
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel StepIconComponent={QontoStepIcon}>{label}</StepLabel>

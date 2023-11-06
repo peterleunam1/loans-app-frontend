@@ -1,7 +1,7 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { localStorageTypes } from 'constant'
 import { type UserCompleteModel, type UserModel } from 'models'
-import { getLocalStorage, persistLocalStorage } from 'utils'
+import { clearLocalStorage, getLocalStorage, persistLocalStorage } from 'utils'
 
 const initialState: UserCompleteModel = {
   name: '',
@@ -28,8 +28,11 @@ const ownerSlice = createSlice({
       const result = { ...state, ...action.payload }
       persistLocalStorage<UserCompleteModel>(localStorageTypes.OWNER, result)
       return result
+    },
+    clearOwnerToPay: () => {
+      clearLocalStorage(localStorageTypes.OWNER)
     }
   }
 })
-export const { setOwnerToPay } = ownerSlice.actions
+export const { setOwnerToPay, clearOwnerToPay } = ownerSlice.actions
 export default ownerSlice.reducer

@@ -4,5 +4,8 @@ export const regexs = {
   TEXT: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
   NUMBERS: /^[0-9]*$/,
   DOCUMENT: /^\d{10}$/,
-  PHONE: /^\d{10}$|^\d{3}-\d{7}$/
+  PHONE: /^\d{10}$|^\d{3}-\d{7}$/,
+  CREDIT_CARD: /^\d{16}$/,
+  TWO_NUMBERS: /^\d{1,2}$/,
+  FOUR_NUMBERS: /^\d{1,4}$/
 }

@@ -37,8 +37,6 @@ const usersSlice = createSlice({
         persistLocalStorage<UserCompleteModel[]>(localStorageTypes.USERS, result)
         return result
       }
-      // persistLocalStorage<UserCompleteModel[]>(localStorageTypes.USERS, result)
-      // return result
     },
     deleteUser: (state: UserCompleteModel[], action: PayloadAction<number>) => {
       const result = state.filter((user) => user.document !== action.payload)

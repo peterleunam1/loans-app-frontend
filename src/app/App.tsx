@@ -13,6 +13,7 @@ const PayInit = lazy(async () => await import('../pages/public/pays-init/pays-in
 const Private = lazy(async () => await import('../pages/private/private'))
 const PaysOne = lazy(async () => await import('../pages/public/pays-flow/pays-one/pays-one.component'))
 const PaysTwo = lazy(async () => await import('../pages/public/pays-flow/pays-two/pays-two'))
+const PayThree = lazy(async () => await import('../pages/public/pays-flow/pays-three/pays-three'))
 
 function App () {
   return (
@@ -30,6 +31,7 @@ function App () {
              <Route element={<PaymentsGuard/>}>
               <Route path={publicRoutes.PAY_ONE} element={<PaysOne />} />
               <Route path={publicRoutes.PAY_TWO} element={<PaysTwo />} />
+              <Route path={publicRoutes.PAY_THREE} element={<PayThree />} />
             </ Route>
               <Route element={<AuthGuard />}>
                 <Route

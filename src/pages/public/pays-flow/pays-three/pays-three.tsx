@@ -1,51 +1,49 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { Typography } from '@mui/material'
 import { PaymentsLayout } from 'components/templates'
 import { type LoansModel, type AppStore, type UserCompleteModel } from 'models'
-import { creditFields, localStorageTypes, publicRoutes } from 'constant'
-import { Button, Input } from 'components/atoms'
-import credit from '../../../../assets/images/credit_card.svg'
-import { Box, Typography, styled } from '@mui/material'
+import { localStorageTypes, publicRoutes } from 'constant'
 import { updateUser } from '../../../../redux/states/users'
 import { getFeeAmount, getLocalStorage } from 'utils'
 import { useNavigation } from 'hooks'
 import { addAbonoLoan } from '../../../../redux/states/user'
-
-export const Image = styled('img')(() => ({
-  width: '25%'
-}))
+import { PayCard } from 'components/molecules'
 
 export default function PaysThree () {
   const id: string = useParams<{ id: string }>().id ?? ''
   const { goTo } = useNavigation()
   const dispatch = useDispatch()
   const currentClientDocument = useSelector((store: AppStore) => store.owner.document)
-  const usersP = useSelector((store: AppStore) => store.users)
-  const user = usersP.find((user) => user.document === currentClientDocument) as UserCompleteModel
+  const globalUsers = useSelector((store: AppStore) => store.users)
+  const user = globalUsers.find((user) => user.document === currentClientDocument) as UserCompleteModel
   const loan = user.loans.find(loan => loan.id === Number(id)) as LoansModel
-  console.log(loan)
-
+  const feeAmount = getFeeAmount({
+    initialAmount: loan.initialAmount,
+    interest: loan.interest,
+    nFees: loan.n_fees
+  })
   const handlePay = () => {
-    const feeAmount = getFeeAmount({
-      initialAmount: loan.initialAmount,
-      interest: loan.interest,
-      nFees: loan.n_fees
+    // Write your code here!!! (don't forget to remove this comment)
+    // feeAmount is the amount of the fee to pay (you can use this value to pay the fee)
+
+    // This is an example of how to update the user in the redux store, PLEASE DON'T REMOVE THIS CODE
+    const newLoansToUpdateListUsers = user.loans.map(loan => {
+      if (loan.id === Number(id)) {
+        return {
+          ...loan,
+          paid_fees: loan.paid_fees + 1,
+          abonos: loan.abonos + feeAmount
+        }
+      }
+      return loan
     })
-    console.log(feeAmount)
-    alert('Pago realizado con éxito')
+
     dispatch(updateUser({
       ...user,
-      loans: user.loans.map(loan => {
-        if (loan.id === Number(id)) {
-          return {
-            ...loan,
-            paid_fees: loan.paid_fees + 1,
-            abonos: loan.abonos + feeAmount
-          }
-        }
-        return loan
-      })
+      loans: newLoansToUpdateListUsers
     }))
+
     getLocalStorage(localStorageTypes.USER) !== undefined && (
       dispatch(addAbonoLoan({
         ...loan,
@@ -56,21 +54,7 @@ export default function PaysThree () {
   }
   return (
     <PaymentsLayout activeStep={2}>
-        <Typography variant="h6" component="h1" sx={{ mb: 2 }}>Agregar tarjeta</Typography>
-       <Box sx={{
-         display: 'flex',
-         justifyContent: 'center',
-         alignItems: 'center',
-         gap: 10,
-         height: '60vh'
-       }}
-       >
-       <Image src={credit} alt="credit_card" />
-        <form style={{ width: '65%' }}>
-        {creditFields.map((fields, index) => <Input {...fields} key={index} onChange={() => {}} />)}
-        <Box sx={{ mt: 5 }}><Button loading={false} text='Pagar' onClick={handlePay} withIcon /></Box>
-        </form>
-       </Box>
+      <PayCard handlePay={handlePay} onChange={() => {}} />
        <Typography onClick={() => { goTo(`/${publicRoutes.PAY_TWO}`) }}>Regresar</Typography>
     </PaymentsLayout>
   )

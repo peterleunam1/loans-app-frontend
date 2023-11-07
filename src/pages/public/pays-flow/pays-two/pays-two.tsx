@@ -7,14 +7,14 @@ import { getDudeDates, getLocalStorage } from 'utils'
 import { PaymentCard } from 'components/molecules'
 
 export default function PaysTwo () {
-  const usersP = useSelector((store: AppStore) => store.users)
+  const globalUsers = useSelector((store: AppStore) => store.users)
   const owner = useSelector((store: AppStore) => store.owner)
   const client = getLocalStorage(
     localStorageTypes.FILTERED_LOANS_BY_CLIENT
   ) as LoansModel[]
   const clientName: string = client[0].fullName
   const clientDocument: string = client[0].document
-  const user = usersP.find((user) => user.document === owner.document) as UserCompleteModel
+  const user = globalUsers.find((user) => user.document === owner.document) as UserCompleteModel
   const loans = user.loans.filter((loan) => loan.document === clientDocument)
 
   return (

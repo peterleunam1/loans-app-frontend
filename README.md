@@ -1,27 +1,43 @@
-# React + TypeScript + Vite
+# Loans App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
+System for credit and cash sales management with online payment capability.
 
-Currently, two official plugins are available:
+## Overview
+<!-- inserta imagen del assets -->
+![Dashboard](./src/assets/images/dashboard.png)
+![Loans](./src/assets/images/loans.png)
+![Add Loan](./src/assets/images/add-loan.png)
+![Clients](./src/assets/images/debts.png)
+![Payments](./src/assets/images/payments.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Built With
 
-## Expanding the ESLint configuration
+- [React JS](https://reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Material UI](https://material-ui.com/)
+- [React Router Dom](https://reactrouter.com/en/main)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Instructions
+1. **Prerequisites**
+   - Ensure that you have Node.js installed on your computer. You can download it from [here] [aquí](https://nodejs.org/es/).
+   - Ensure that you have Git installed on your computer. You can download it from [here](https://git-scm.com/downloads).
 
-- Configure the top-level `parserOptions` property like this:
+## How to Use
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+   ```bash
+   # Clone this repository
+   $ git clone https://https://github.com/peterleunam1/loans-app-frontend
+   # Install dependencies
+   $ npm install 
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   # Run app
+   $ npm run dev 
+
+   # Build app
+   $ npm run build
+   $ npm run start
+   ```
+
+

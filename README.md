@@ -5,11 +5,11 @@ System for credit and cash sales management with online payment capability.
 
 ## Overview
 <!-- inserta imagen del assets -->
-![Dashboard](assets/images/dashboard.png)
-![Loans](assets/images/loans.png)
-![Add Loan](assets/images/add-loan.png)
-![Clients](assets/images/debts.png)
-![Payments](assets/images/payments.png)
+![Dashboard](./src/assets/images/dashboard.png)
+![Loans](./src/assets/images/loans.png)
+![Add Loan](./src/assets/images/add-loan.png)
+![Clients](./src/assets/images/debts.png)
+![Payments](./src/assets/images/payments.png)
 
 ## Built With
 

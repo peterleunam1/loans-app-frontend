@@ -1,22 +1,22 @@
-import { Box, Typography } from '@mui/material'
-import { Button, Input } from 'components/atoms'
-import credit from '../../../assets/images/credit_card.svg'
-import { creditFields } from 'constant'
-import { boxStyles, Form, Image } from './pay-card.styled'
+import { Box, Typography } from "@mui/material";
+import { Button, Input } from "components/atoms";
+import credit from "assets/images/credit_card.svg";
+import { creditFields } from "constant";
+import { boxStyles, Form, Image } from "./pay-card.styled";
 
 interface PaycardProps {
-  handlePay: () => void
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  handlePay: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function PayCard ({ handlePay, onChange }: PaycardProps) {
+export default function PayCard({ handlePay, onChange }: PaycardProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e)
-  }
+    onChange(e);
+  };
 
   const handleAddPay = () => {
-    handlePay()
-  }
+    handlePay();
+  };
 
   return (
     <>
@@ -40,5 +40,5 @@ export default function PayCard ({ handlePay, onChange }: PaycardProps) {
         </Form>
       </Box>
     </>
-  )
+  );
 }

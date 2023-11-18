@@ -30,6 +30,7 @@
       "services": ["src/services"],
       "pages": ["src/pages"],
       "guards": ["src/guards"],
+      "assets": ["src/assets"],
     }
   },
   "include": ["src"],

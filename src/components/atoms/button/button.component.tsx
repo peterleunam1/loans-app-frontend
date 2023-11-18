@@ -1,21 +1,31 @@
-import { LoadingButton } from '@mui/lab'
-import AddIcon from '@mui/icons-material/Add'
-import { buttonStyles } from './button.styled'
-import { getCapitalize } from 'utils'
+import { LoadingButton, LoadingButtonProps } from "@mui/lab";
+import AddIcon from "@mui/icons-material/Add";
+import { buttonStyles } from "./button.styled";
+import { getCapitalize } from "utils";
+import Box from "@mui/material/Box";
 
-interface ButtonProps {
-  onClick: () => void
-  loading: boolean
-  withIcon?: boolean
-  text: string
-  isDisabled?: boolean
+interface ButtonProps extends LoadingButtonProps {
+  onClick: () => void;
+  loading: boolean;
+  withIcon?: boolean;
+  text: string;
+  isDisabled?: boolean;
+  icon?: React.ReactNode;
 }
-export default function Button ({ isDisabled, loading, withIcon, text, onClick }: ButtonProps) {
-  const textCapitalized = getCapitalize(text)
+export default function Button({
+  isDisabled,
+  loading,
+  withIcon,
+  text,
+  onClick,
+  icon,
+  ...props
+}: ButtonProps) {
+  const textCapitalized = getCapitalize(text);
 
   const handleClick = () => {
-    onClick()
-  }
+    onClick();
+  };
 
   return (
     <LoadingButton
@@ -24,9 +34,22 @@ export default function Button ({ isDisabled, loading, withIcon, text, onClick }
       sx={buttonStyles}
       onClick={handleClick}
       disabled={isDisabled}
+      {...props}
     >
       {textCapitalized}
       {withIcon && <AddIcon />}
+      {icon && (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          className="iconBox"
+        >
+          {icon}
+        </Box>
+      )}
     </LoadingButton>
-  )
+  );
 }

@@ -1,61 +1,63 @@
-import { Box, Container, Card, Typography } from '@mui/material'
-import logo from '../../../assets/images/logo.svg'
-import coin from '../../../assets/images/personal.svg'
-import { VerticalStepper } from 'components/molecules'
-import { Button, Input } from 'components/atoms'
-import { publicRoutes, regexs } from 'constant'
-import DocumentScannerOutlinedIcon from '@mui/icons-material/DocumentScannerOutlined'
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { type AppStore } from 'models'
-import { useNavigation } from 'hooks'
-import { setOwnerToPay } from '../../../redux/states/owner'
+import { Box, Container, Card, Typography } from "@mui/material";
+import logo from "../../../assets/images/logo.svg";
+import coin from "../../../assets/images/personal.svg";
+import { VerticalStepper } from "components/molecules";
+import { Button, Input } from "components/atoms";
+import { publicRoutes, regexs } from "constant";
+import DocumentScannerOutlinedIcon from "@mui/icons-material/DocumentScannerOutlined";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { type AppStore } from "models";
+import { useNavigation } from "hooks";
+import { setOwnerToPay } from "../../../redux/states/owner";
 
-export default function PayInit () {
-  const [owner, setOwner] = useState<string>('')
-  const users = useSelector((store: AppStore) => store.users)
-  const dispatch = useDispatch()
-  const { goTo } = useNavigation()
+export default function PayInit() {
+  const [owner, setOwner] = useState<string>("");
+  const users = useSelector((store: AppStore) => store.users);
+  const dispatch = useDispatch();
+  const { goTo } = useNavigation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setOwner(e.target.value)
-  }
+    setOwner(e.target.value);
+  };
   const handleSubmit = () => {
-    const exist = users.find((item) => item.document === owner as unknown as number)
+    const exist = users.find(
+      (item) => item.document === (owner as unknown as number)
+    );
     if (exist) {
-      dispatch(setOwnerToPay(exist))
-      goTo(`/${publicRoutes.PAY_ONE}`)
+      dispatch(setOwnerToPay(exist));
+      goTo(`/${publicRoutes.PAY_ONE}`);
     } else {
-      alert('No existe el usuario')
+      alert("No existe el usuario");
     }
-  }
+  };
   return (
     <Container sx={{ py: 3 }}>
       <picture>
-        <img src={logo} alt="logo" />
+        <img onClick={() => goTo("/")} src={logo} alt="logo" />
       </picture>
-      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
         <VerticalStepper />
         <Box
           sx={{
-            width: '45%',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            bgcolor: 'primary.main',
+            width: "45%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            alignItems: "center",
+            bgcolor: "primary.main",
             borderRadius: 5,
-            p: 3
+            p: 3,
           }}
         >
           <Card
             sx={{
               p: 2,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '95%',
-              gap: 2
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "95%",
+              gap: 2,
             }}
           >
             <img src={coin} alt="" />
@@ -65,7 +67,7 @@ export default function PayInit () {
               que tu pago haya sido exitoso al finalizar el proceso.
             </Typography>
           </Card>
-          <Box sx={{ bgcolor: '#fff', width: '95%', p: 2, borderRadius: 4 }}>
+          <Box sx={{ bgcolor: "#fff", width: "95%", p: 2, borderRadius: 4 }}>
             <Typography
               variant="subtitle1"
               component="p"
@@ -82,7 +84,7 @@ export default function PayInit () {
               sx={{ my: 3 }}
             >
               Este es caracterizado por el numero de identificación del
-              prestamista o administrador de la mipyme al cual desea pagar.{' '}
+              prestamista o administrador de la mipyme al cual desea pagar.{" "}
             </Typography>
             <Input
               label="Número de documento"
@@ -93,11 +95,11 @@ export default function PayInit () {
             />
             <Box
               sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: '100%',
-                mt: 6
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+                mt: 6,
               }}
             >
               <Button loading={false} onClick={handleSubmit} text="Continuar" />
@@ -106,5 +108,5 @@ export default function PayInit () {
         </Box>
       </Box>
     </Container>
-  )
+  );
 }
